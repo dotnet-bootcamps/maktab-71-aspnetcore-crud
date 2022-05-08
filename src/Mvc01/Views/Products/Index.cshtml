@@ -1,0 +1,29 @@
+﻿@model List<ProductModel>
+
+<h2>
+    لیست محصولات
+</h2>
+<a class="btn btn-success" asp-controller="Products" asp-action="Create">ایجاد کالا</a>
+<table class="table table-hover table-light">
+    <thead>
+        <th>شناسه</th>
+        <th>نام</th>
+        <th>قیمت</th>
+        <th>موجودی</th>
+        <th></th>
+    </thead>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>@product.Id</td>
+            <td>@product.ProductName</td>
+            <td>@product.Price</td>
+            <td>@product.ProductCount</td>
+            <td>
+                <a class="btn btn-info" asp-controller="Products" asp-action="Details" asp-route-id="@product.Id">مشاهده</a>
+                <a class="btn btn-warning" asp-controller="Products" asp-action="Edit" asp-route-id="@product.Id">ویرایش</a>
+                <a class="btn btn-danger" asp-controller="Products" asp-action="Delete" asp-route-id="@product.Id">حذف</a>
+            </td>
+        </tr>
+    }
+</table>

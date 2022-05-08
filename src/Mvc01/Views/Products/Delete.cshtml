@@ -1,0 +1,15 @@
+﻿@model ProductModel
+
+<div class="alert alert-danger">
+    <h4 class="alert-heading">
+        <i class="bi bi-trash"></i>
+        حذف کالا!
+    </h4>
+    <p>
+        آیا از حذف کالا <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.Id" class="alert-link">@Model.ProductName</a> اطمینان دارید؟
+    </p>
+    <form asp-controller="Products" asp-action="DeleteProduct" method="post">
+        <input type="hidden" asp-for="Id"/>
+        <input type="submit" value="تایید"/>
+    </form>
+</div>

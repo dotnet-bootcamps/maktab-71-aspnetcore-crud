@@ -1,0 +1,28 @@
+﻿@model ProductModel
+<h2 class="mb-5">
+    ویرایش @Model.ProductName
+</h2>
+
+<form asp-controller="Products" asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label for="Id" class="form-label">شناسه کالا</label>
+        <input class="form-control" asp-for="Id" readonly/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="ProductName"></label>
+        <input class="form-control" asp-for="ProductName"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Price"></label>
+        <input class="form-control" asp-for="Price"/>
+    </div>
+    <div class="mb-3">
+        <label for="ProductCount" class="form-label">موجودی در انبار</label>
+        <input class="form-control" asp-for="ProductCount"/>
+    </div>
+    <div class="mb-3">
+        <input type="submit" class="btn btn-success" value="ذخیره اطلاعات">
+        <a class="btn btn-light"
+           asp-controller="Products" asp-action="Index" >بازگشت به لیست</a>
+    </div>
+</form>
