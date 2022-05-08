@@ -5,11 +5,11 @@ namespace Mvc01.Controllers
 {
     public class ProductsController : Controller
     {
-        private ProductInMemoryRepository _productRepository;
+        private ProductEfRepository _productRepository;
         public ProductsController()
         {
 
-            _productRepository = new ProductInMemoryRepository();
+            _productRepository = new ProductEfRepository();
         }
 
         [HttpGet]
