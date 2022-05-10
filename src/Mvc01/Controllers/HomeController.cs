@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Mvc01.Models;
 using System.Diagnostics;
+using Mvc01.Models.QueryModel;
 
 namespace Mvc01.Controllers
 {
@@ -15,6 +16,8 @@ namespace Mvc01.Controllers
 
         public IActionResult Index()
         {
+            var repo = new ProductEfCoreRepository();
+            var result = repo.GetAllProductsWithCategory2();
             return View();
         }
 

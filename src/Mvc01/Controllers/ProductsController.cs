@@ -5,11 +5,11 @@ namespace Mvc01.Controllers
 {
     public class ProductsController : Controller
     {
-        private ProductInMemoryRepository _productRepository;
+        private ProductEfCoreRepository _productRepository;
         public ProductsController()
         {
 
-            _productRepository = new ProductInMemoryRepository();
+            _productRepository = new ProductEfCoreRepository();
         }
 
         [HttpGet]
@@ -26,7 +26,7 @@ namespace Mvc01.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(ProductModel model)
+        public IActionResult Create(Product model)
         {
             _productRepository.AddProduct(model);
             return RedirectToAction("Index");
@@ -45,7 +45,7 @@ namespace Mvc01.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(ProductModel model)
+        public IActionResult Edit(Product model)
         {
             _productRepository.UpdateProduct(model);
             return RedirectToAction("Index");
@@ -57,7 +57,7 @@ namespace Mvc01.Controllers
             return View(product);
         }
 
-        public IActionResult DeleteProduct(ProductModel model)
+        public IActionResult DeleteProduct(Product model)
         {
             _productRepository.DeleteProduct(model.Id);
             return RedirectToAction("Index");

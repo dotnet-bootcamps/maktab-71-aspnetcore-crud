@@ -2,7 +2,7 @@
 
 public class ProductInMemoryRepository
 {
-    private static List<ProductModel> _products = new List<ProductModel>();
+    private static List<Product> _products = new List<Product>();
 
     public ProductInMemoryRepository()
     {
@@ -31,17 +31,17 @@ public class ProductInMemoryRepository
         //});
     }
 
-    public List<ProductModel> GetAllProducts()
+    public List<Product> GetAllProducts()
     {
         return _products;
     }
 
-    public ProductModel GetProductDetails(int productId)
+    public Product GetProductDetails(int productId)
     {
         return _products.Where(w => w.Id == productId).FirstOrDefault();
     }
 
-    public int AddProduct(ProductModel model)
+    public int AddProduct(Product model)
     {
         model.Id = 1;
 
@@ -54,7 +54,7 @@ public class ProductInMemoryRepository
         return model.Id;
     }
 
-    public void UpdateProduct(ProductModel model)
+    public void UpdateProduct(Product model)
     {
         var product = GetProductDetails(model.Id);
         product.Price = model.Price;
@@ -62,7 +62,7 @@ public class ProductInMemoryRepository
         product.ProductName = model.ProductName;
     }
 
-    public ProductModel DeleteProduct(int productId)
+    public Product DeleteProduct(int productId)
     {
         var product = GetProductDetails(productId);
         _products.Remove(product);
